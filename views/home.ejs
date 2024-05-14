@@ -1,14 +1,14 @@
 <h2>latest dishes</h2>
 
 <div class="all-dishes">
-    <% for (let dish of dishes) {%>
+    <% for (let game of games) {%>
         <div class="ui-card">
-            <img src="<%= dish.image_url %>" alt="">
+            <img src="<%= game.image_url %>" alt="">
             <h2>
-                <a href="/dishes/<%= dish.id %>"><%= dish.title %></a>
+                <a href="/dishes/<%= game.id %>"><%= game.title %></a>
             </h2>
             <h3>
-                shared by: <%= dish.email %>
+                Number of users: <%= game.player_count %>
             </h3>
         </div>
 

@@ -29,7 +29,7 @@ router.post('/login', (req, res) => {
             return res.render('login', { errorMessage: 'incorrect email or password'})
         }
 
-        const hashedPassword = result.rows[0].password_digest
+        const hashedPassword = result.rows[0].password_hashed
         bcrypt.compare(plainTextPassword, hashedPassword, (err, isCorrect) => {
             if (err) console.log(err);
 

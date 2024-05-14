@@ -1,3 +1,10 @@
+* {
+    border: 1px solid red;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 :root {
     --sans-serif: Arial, Helvetica, sans-serif;
 
@@ -5,22 +12,29 @@
     --green: #c0d46d;
     --gray: #f0f0f0;
     --darkgray: #404040;
+    --darkgreen: #283025;
 }
 
 body {
-    background-color: var(--gray);
+    background-color: var(--darkgreen);
     font-family: var(--sans-serif);
     text-align: center;
 }
 
 .wrapper {
-    max-width: 500px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
-#top {
+nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+} 
+
+.main-title {
+    font-size: 2rem;
 }
 
 .ui-card {
@@ -47,7 +61,7 @@ body {
 
     .all-dishes {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1rem;
     }
 }

@@ -1,8 +1,8 @@
 <nav>
-    <a href="/share">share</a>
     <a href="/about">about</a>
+    <h1 class="main-title"><a href="/">GAMESHARE</a></h1>
     <% if (isLoggedIn) { %>
-    <p> Logged in as <%= currentUser.email %></p>
+    <p> <a href=""><%= currentUser.username %></a></p>
     <form action="/logout?_method=delete" method="post">
         <button>logout</button>
     </form>
