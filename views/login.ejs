@@ -1,0 +1,15 @@
+<h1>Login</h1>
+
+<% if (locals.errorMessage) { %>
+    <p class="error"><%= errorMessage %></p>
+<% } %>
+
+<form action="/login" method="post">
+    <label for="">email</label>
+    <input type="text" name="email">
+
+    <label for="">password</label>
+    <input type="password" name="password">
+
+    <button>Login</button>
+</form>
