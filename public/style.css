@@ -1,5 +1,13 @@
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+      
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -12,17 +20,25 @@
     --green: #c0d46d;
     --gray: #f0f0f0;
     --darkgray: #404040;
-    --darkgreen: #283025;
+    --calpolygreen: #005500;
+    --raisinblack: #34252f;
+    --background: #25273A;
+    --nav: #00a5cf;
 }
 
 body {
-    background-color: var(--darkgreen);
+    background-color: var(--background);
     font-family: var(--sans-serif);
     text-align: center;
+    color: white;
+}
+
+img {
+    max-width: 100%;
 }
 
 .wrapper {
-    max-width: 80%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -31,10 +47,17 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    background-color: var(--nav);
 } 
 
-.main-title {
-    font-size: 2rem;
+.main-title > a {
+    font-size: 4rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
 }
 
 .ui-card {
@@ -45,8 +68,25 @@ nav {
     color: var(--green);
 }
 
+.user-count {
+    font-style: italic;
+}
+
 .error {
     color: red;
+}
+
+.user-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.profile-image {
+    text-align: center;
+}
+
+.profile-image img {
+    max-width: 50%;
 }
 
 @media (min-width: 800px) {
@@ -61,7 +101,7 @@ nav {
 
     .all-dishes {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         gap: 1rem;
     }
 }

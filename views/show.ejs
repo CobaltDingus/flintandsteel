@@ -1,23 +1,25 @@
-<h1>dish details</h1>
+<h1>game details</h1>
 
-<h2><%= dish.title %></h2>
-<p><%= dish.description %></p>
+<img src="<%= game.image_url %>" alt="">
+<h2><%= game.title %></h2>
+<p><%= game.description %></p>
 
-<form action="/dishes/<%= dish.id %>?_method=delete" method="post">
-    <button>delete</button>
-</form>
-
-<a href="/dishes/<%= dish.id %>/edit">edit dish</a>
-
-<form action="/comments" method="post">
-    <label for="">comment</label>
-    <textarea name="content"></textarea>
-    <input type="hidden" name="dish_id" value=<%= dish.id %>>
-    <button>post</button>
-</form>
-
-<h4>Comment section</h4>
-<% for (let comment of comments) { %>
-    <p><%= comment.content %></p>
-    <p><%= comment.email %></p>
-<% } %>
+<section>
+    <div class="user-games">
+        <h2>Users</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Username</th>
+                <th>Remarks</th>
+            </tr>
+            <% for (let gameUser of gameUsers) {%>
+                <tr>
+                    <td><img src="<%= gameUser.profile_image %>" alt="Profile picture"></td>
+                    <td><%= gameUser.username %></td>
+                    <td><%= gameUser.remark %></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</section>

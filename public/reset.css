@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 
 html {
@@ -14,10 +15,11 @@ img {
     width: 100%;
 }
 
-a {
-    text-decoration: none;
+td {
+    text-align: left;
+    padding-right: 10px;
 }
 
-h1, h2, h3, h4, h5 {
-    margin: 0;
+a {
+    text-decoration: none;
 }

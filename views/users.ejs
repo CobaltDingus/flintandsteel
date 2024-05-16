@@ -1,0 +1,41 @@
+<header>
+    <div class="user-header">
+        <h1><%= user.username %></h1>
+    <% if (currentUser.id === user.id) { %>
+        <a href="/users/<%= user.id %>/edit/profile">edit profile</a>
+    <% } %>
+    </div>
+</header>
+
+<section>
+    <div class="user-wrapper">
+        <div class="profile-image">
+            <img src="<%= user.profile_image %>" alt="">
+        </div>
+        <div class="user-desc">
+            <h2>About me</h2>
+            <p><%= user.about_me %></p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="user-games">
+        <h2>Games</h2>
+        <% if (currentUser.id === user.id) { %>
+            <a href="/users/<%= user.id %>/edit/games">edit games</a>
+        <% } %>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Remarks</th>
+            </tr>
+            <% for (let game of games) {%>
+                <tr>
+                    <td><%= game.title %></td>
+                    <td><%= game.remark %></td>
+                </tr>
+            <% } %>
+        </table>
+    </div>
+</section>

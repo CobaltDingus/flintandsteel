@@ -14,12 +14,7 @@ for (let game of randomGameArray) {
     })
 }
 
-// for (let i = 0; i < 10; i++) {
-//     const dummyTitle = randomFoodArray[Math.floor(Math.random() * randomFoodArray.length)]
-//     db.query(sql, [dummyTitle, dummyDescription, dummyImage], (err, result) => {
-//         if (err) {
-//             console.log(err);
-//         }
-//         console.log(result.rows[0]);
-//     })
-// }
+
+
+
+const sqlUserGame = `INSERT INTO usergamelist (user_id, game_id) VALUES ($1, $2);`

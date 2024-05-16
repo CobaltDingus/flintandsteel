@@ -4,17 +4,19 @@ const db = require('../db')
 
 router.get('/', (req, res) => {
 
-    // console.log(req.session.userId);
-
     const sql = `
-        SELECT * FROM games;
+        SELECT * FROM games ORDER BY player_count DESC;
     `
 
     db.query(sql, (err, result) => {
         if (err) console.log(err);
         const games = result.rows
-        res.render('home', { games: games})
+        res.render('index', { games: games })
     })
+})
+
+router.get('/about', (req, res) => {
+    res.render('about')
 })
 
 module.exports = router
