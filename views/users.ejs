@@ -44,19 +44,3 @@
         </div>
     </section>
 </main>
-
-<div class="user-connections">
-    <% if (currentUser.id === user.id) { %>
-        <h2>Your connections</h2>
-        <% for (let chat of chats) { %>
-            <% if (chat.sender_id === currentUser.id && chat.username !== user.username) { %>
-                <a href="/users/<%= currentUser.id %>/messages/<%= chat.receiver_id %>"><%= chat.username %></a>
-            <% } else if (chat.receiver_id === currentUser.id && chat.username !== user.username) {%>
-                <a href="/users/<%= currentUser.id %>/messages/<%= chat.sender_id %>"><%= chat.username %></a>
-            <% } %>
-        <% } %>
-        
-    <% } else if (isLoggedIn) { %>
-        <a href="/users/<%= currentUser.id %>/messages/<%= user.id %>">Message <%= user.username %></a>
-    <% } %>
-</div>
