@@ -30,26 +30,11 @@ router.get('/users/:id', (req, res) => {
 
             const games = result.rows
 
-            const sqlChats = `
-                SELECT 
-                DISTINCT ON (receiver_id) * 
-                FROM messages 
-                JOIN users 
-                ON messages.receiver_id = users.id
-                WHERE sender_id = $1 OR receiver_id = $1;
-            `
-
-            db.query(sqlChats, [req.params.id], (err, result) => {
-                if (err) console.log(err);
-
-                const chats = result.rows
-
-                res.render('users', { user: user,  games: games, chats: chats })
-            })
-
+            res.render('users', { user: user,  games: games })
         })
 
     })
+
 })
 
 router.get('/users/:id/edit/profile', userEditSelf, (req, res) => {
