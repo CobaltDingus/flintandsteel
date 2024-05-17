@@ -1,12 +1,14 @@
-<h1>game details</h1>
 
-<img src="<%= game.image_url %>" alt="">
-<h2><%= game.title %></h2>
-<p><%= game.description %></p>
+<h1 class="header"><%= game.title %></h1>
+
+<img class="game-image" src="<%= game.image_url %>" alt="Image of game">
+<div class="paragraph">
+    <p>Description: <%= game.description %></p>
+</div>
 
 <section>
     <div class="user-games">
-        <h2>Users</h2>
+        <h2 class="tagline">Users</h2>
         <table>
             <tr>
                 <th></th>
@@ -16,10 +18,11 @@
             <% for (let gameUser of gameUsers) {%>
                 <tr>
                     <td><img src="<%= gameUser.profile_image %>" alt="Profile picture"></td>
-                    <td><%= gameUser.username %></td>
-                    <td><%= gameUser.remark %></td>
+                    <td><a class="player" href="/users/<%= gameUser.user_id %>"><%= gameUser.username %></a></td>
+                    <td><span class="remark"><%= gameUser.remark %></span></td>
                 </tr>
             <% } %>
         </table>
     </div>
 </section>
+

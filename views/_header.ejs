@@ -1,14 +1,11 @@
 <nav>
-    <a href="/about">about</a>
-    <h1 class="main-title"><a href="/">GAMESHARE</a></h1>
-    <div>
-    <% if (isLoggedIn) { %>
-    <a href="/users/<%= currentUser.id %>"><%= currentUser.username %></a>
-    <form action="/logout?_method=delete" method="post">
-        <button>logout</button>
-    </form>
-    <% } else { %>
-    <a href="/login">login</a>
-    <% } %>
+    <div class="nav-container">
+        <div class="box"><a href="/about">About</a></div>
+        <div class="box"><a class="main-title" href="/">GAME<->SHARE</a></div>
+            <% if (isLoggedIn) { %>
+            <div class="box"><a href="/users/<%= currentUser.id %>"><%= currentUser.username %></a></div>
+            <% } else { %>
+            <div class="box"><a href="/login">login</a></div>
+            <% } %>
     </div>
 </nav>

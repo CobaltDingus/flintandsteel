@@ -50,4 +50,55 @@ router.delete('/logout', (req, res) => {
     res.redirect('/login')
 })
 
+router.get('/signup', (req, res) => {
+    res.render('signup')
+})
+
+router.post('/signup', (req, res) => {
+    const email = req.body.email
+    const password = req.body.password
+    const username = req.body.username
+    const aboutMe = req.body.aboutMe
+    const profileImage = req.body.profileImage
+
+    const sql = `
+        SELECT *
+        FROM users
+        WHERE email = $1;
+    `
+
+    db.query(sql, [email], (err, result) => {
+        if (err) console.log(err);
+
+        if (result.rows.length === 0) {
+            const saltRounds = 10
+            const sqlInsertNewUser = `
+                INSERT INTO users (username, email, password_hashed, profile_image, about_me)
+                VALUES ($1, $2, $3, $4, $5);
+            `
+            bcrypt.genSalt(saltRounds, (err, salt) => {
+                bcrypt.hash(password, salt, function(err, hash) {
+                    db.query(sqlInsertNewUser, [username, email, hash, profileImage,aboutMe], (err, result) => {
+                        if (err) console.log(err);
+                        
+                        const sql = `SELECT * FROM users WHERE email = $1 `
+
+                        db.query(sql, [email], (err, result) => {
+                            if (err) console.log(err);
+
+                            req.session.userId = result.rows[0].id
+
+                            res.redirect('/')
+                        })
+
+                    })
+                })
+            })
+        } else {
+            return res.render('login', { errorMessage: 'email is already used. Please log in'})
+        }
+    })
+})
+
+
 module.exports = router

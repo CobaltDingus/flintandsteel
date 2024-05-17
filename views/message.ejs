@@ -1,0 +1,15 @@
+<h1>Chat with other person</h1>
+
+<% for (let message of messages) { %>
+
+    <p><%= message.username %>: <%= message.content %></p>
+    <p><%= message.date_trunc %></p>
+<% } %>
+
+<form action="/users/<%= currentUser.id %>/messages/<%= receiverId %>" method="post">
+    <label for="">Message</label>
+    <textarea name="content"></textarea>
+    <input type="hidden" name="senderId" value=<%= currentUser.id %>>
+    <input type="hidden" name="receiverId" value=<%= receiverId %>>
+    <button>send</button>
+</form>

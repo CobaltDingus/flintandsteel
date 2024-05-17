@@ -1,11 +1,11 @@
-<h2>popular games</h2>
+<h2 class="tagline">Pick a game and see who's playing!</h2>
 
-<div class="all-dishes">
+<div class="all-games">
     <% for (let game of games) {%>
         <div class="ui-card">
-            <img src="<%= game.image_url %>" alt="">
+            <a href="/games/<%= game.id %>"><img class="game-tile" src="<%= game.image_url %>" alt=""></a>
+            <a class="card-text" href="/games/<%= game.id %>"><%= game.title %> <span class="user-count">(<%= game.player_count %> users)</span></a>
             <h2>
-                <a href="/games/<%= game.id %>"><%= game.title %> <span class="user-count">(<%= game.player_count %> users)</span></a>
             </h2>
         </div>
 

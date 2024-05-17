@@ -1,32 +1,37 @@
-<h2>Edit Games</h2>
+<h1 class="header">Edit Games</h1>
 <% for (let game of games) { %>
-<form action="/users/<%= currentUser.id %>/edit/games?_method=put" method="post">
+<div class="form">
+    <form action="/users/<%= currentUser.id %>/edit/games?_method=put" method="post">
 
-    <label for=""><%= game.title %></label>
-    <input type="text" name="remark" value="<%= game.remark %>">
-    <input type="hidden" name="userGameId" value=<%= game.usergameid %>>
+        <label for=""><%= game.title %></label>
+        <input type="text" name="remark" value="<%= game.remark %>">
+        <input type="hidden" name="userGameId" value=<%= game.usergameid %>>
 
-    <button>Update</button>
+        <button class="update">Update</button>
 
-</form>
+    </form>
 
-<form action="/users/<%= currentUser.id %>/edit/games?_method=delete" method="post">
-    <input type="text" name="userGameId" value=<%= game.usergameid %>>
-    <input type="hidden" name="gameId" value=<%= game.game_id %>>
-    <button>Delete</button>
-</form>
+    <form class="delete-form" action="/users/<%= currentUser.id %>/edit/games?_method=delete" method="post">
+        <input type="hidden" name="userGameId" value=<%= game.usergameid %>>
+        <input type="hidden" name="gameId" value=<%= game.game_id %>>
+        <button>Delete</button>
+    </form>
+</div>
 <% } %>
 
-<form action="/users/<%= currentUser.id %>/edit/games" method="post">
-    <label for="">Game</label>
-    <select name="gameId">
-        <% for (let game of allGames) { %>
-            <option value="<%= game.id %>"><%= game.title %></option>
-        <% } %>
-    </select>
+<h2>Add new game</h2>
+<div class="form">
+    <form action="/users/<%= currentUser.id %>/edit/games" method="post">
+        <label for="">Game</label>
+        <select name="gameId">
+            <% for (let game of allGames) { %>
+                <option value="<%= game.id %>"><%= game.title %></option>
+            <% } %>
+        </select>
 
-    <label for="">Remark</label>
-    <input type="text" name="remark">
+        <label for="">Remark</label>
+        <input type="text" name="remark">
 
-    <button>Add new game</button>
-</form>
+        <button>Add new game</button>
+    </form>
+</div>

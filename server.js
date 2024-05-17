@@ -8,7 +8,6 @@ const expressLayouts = require('express-ejs-layouts')
 const gameRouter = require('./routes/game_router')
 const sessionRouter = require('./routes/session_router')
 const homeRouter = require('./routes/home_router')
-const commentRouter = require('./routes/comment_router')
 const userRouter = require('./routes/user_router')
 const session = require('express-session')
 const setCurrentUser = require('./middlewares/setCurrentUser')
@@ -36,7 +35,6 @@ app.use(homeRouter)
 app.use(sessionRouter)
 app.use(userRouter)
 app.use(gameRouter)
-app.use(commentRouter)
 
 app.listen(port, () => {
     console.log(`server is listening on port ${port}`);

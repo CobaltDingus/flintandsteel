@@ -2,7 +2,9 @@ const express = require('express')
 const db = require('../db')
 const ensureLoggedIn = require('../middlewares/ensureLoggedIn')
 const userEditSelf = require('../middlewares/userEditSelf')
+const setCurrentUser = require('../middlewares/setCurrentUser')
 const router = express.Router()
+
 
 router.get('/users/:id', (req, res) => {
     const sql = `SELECT * FROM users WHERE id = $1`
@@ -28,7 +30,23 @@ router.get('/users/:id', (req, res) => {
 
             const games = result.rows
 
-            res.render('users', { user: user,  games: games })
+            const sqlChats = `
+                SELECT 
+                DISTINCT ON (receiver_id) * 
+                FROM messages 
+                JOIN users 
+                ON messages.receiver_id = users.id
+                WHERE sender_id = $1 OR receiver_id = $1;
+            `
+
+            db.query(sqlChats, [req.params.id], (err, result) => {
+                if (err) console.log(err);
+
+                const chats = result.rows
+
+                res.render('users', { user: user,  games: games, chats: chats })
+            })
+
         })
 
     })
@@ -101,7 +119,7 @@ router.get('/users/:id/edit/games', userEditSelf, (req, res) => {
     })
 })
 
-router.post('/users/:id/edit/games', ensureLoggedIn, (req, res) => {
+router.post('/users/:id/edit/games', userEditSelf, (req, res) => {
 
     const gameId = req.body.gameId
     const remark = req.body.remark
@@ -129,7 +147,7 @@ router.post('/users/:id/edit/games', ensureLoggedIn, (req, res) => {
     })
 })
 
-router.delete('/users/:id/edit/games', ensureLoggedIn, (req, res) => {
+router.delete('/users/:id/edit/games', userEditSelf, (req, res) => {
     
     const userGameId = req.body.userGameId
     const gameId = req.body.gameId
@@ -149,12 +167,12 @@ router.delete('/users/:id/edit/games', ensureLoggedIn, (req, res) => {
         db.query(sqlUpdatePlayerCount, [gameId], (err, result) => {
             if (err) console.log(err);
 
-            res.redirect(`/users/${req.session.userId}`)
+            res.redirect(`/users/${req.session.userId}/edit/games`)
         })
     })
 })
 
-router.put('/users/:id/edit/profile', (req, res) => {
+router.put('/users/:id/edit/profile', userEditSelf, (req, res) => {
     const username = req.body.username
     const imageUrl = req.body.profileImage
     const aboutMe = req.body.aboutMe
@@ -172,7 +190,7 @@ router.put('/users/:id/edit/profile', (req, res) => {
     })
 })
 
-router.put('/users/:id/edit/games', (req, res) => {
+router.put('/users/:id/edit/games', userEditSelf, (req, res) => {
     const remark = req.body.remark
     const userGameId = req.body.userGameId
 
@@ -183,6 +201,50 @@ router.put('/users/:id/edit/games', (req, res) => {
     db.query(sql, [remark, userGameId], (err, result) => {
         if (err) console.log(err);
         res.redirect(`/users/${req.params.id}`)
+    })
+})
+
+router.get('/users/:id/messages/:receiver_id', userEditSelf, (req, res) => {
+    
+    const sql = `
+        SELECT
+        date_trunc('second', time_posted),
+        messages.sender_id, 
+        messages.receiver_id, 
+        messages.content,
+        users.*
+        FROM messages 
+        JOIN users 
+        ON sender_id = users.id
+        WHERE (sender_id = $1 AND receiver_id = $2) 
+        OR (sender_id = $2 AND receiver_id = $1) 
+        ORDER BY messages.id;
+    `
+
+    db.query(sql, [req.session.userId, req.params.receiver_id], (err, result) => {
+        if (err) console.log(err);
+
+        const messages = result.rows
+
+        const receiver_id = req.params.receiver_id
+
+        res.render('message', { messages: messages, receiverId: receiver_id})
+    })
+})
+
+router.post('/users/:id/messages/:receiver_id', userEditSelf, (req, res) => {
+    const senderId = req.body.senderId
+    const receiverId = req.body.receiverId
+    const content = req.body.content
+
+    const sql = `INSERT INTO messages (sender_id, receiver_id, content) 
+    VALUES ($1, $2, $3);
+    `
+
+    db.query(sql, [senderId, receiverId, content], (err, result) => {
+        if (err) console.log(err);
+
+        res.redirect(`/users/${senderId}/messages/${receiverId}`)
     })
 })
 

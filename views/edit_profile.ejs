@@ -1,13 +1,16 @@
-<h2>Edit Profile</h2>
-<form action="/users/<%= currentUser.id %>/edit/profile?_method=put" method="post">
-    <label for="">Username</label>
-    <input type="text" name="username" value="<%= user.username %>">
+<h2 class="tagline">Edit Profile</h2>
 
-    <label for="">Profile picture</label>
-    <input type="text" name="profileImage" value="<%= user.profile_image %>">
+<div class="form">
+    <form action="/users/<%= currentUser.id %>/edit/profile?_method=put" method="post">
+        <label for="">Username</label>
+        <input type="text" name="username" value="<%= user.username %>">
 
-    <label for="">About me</label>
-    <input type="text" name="aboutMe" value="<%= user.about_me %>">
+        <label for="">Profile picture</label>
+        <input type="text" name="profileImage" value="<%= user.profile_image %>">
 
-    <button>Update</button>
-</form>
+        <label for="">About me</label>
+        <textarea name="aboutMe"><%= user.about_me %></textarea>
+
+        <button>Update</button>
+    </form>
+</div>

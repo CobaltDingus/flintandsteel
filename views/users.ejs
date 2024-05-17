@@ -3,39 +3,45 @@
         <h1><%= user.username %></h1>
     <% if (currentUser.id === user.id) { %>
         <a href="/users/<%= user.id %>/edit/profile">edit profile</a>
+        <form action="/logout?_method=delete" method="post">
+            <button>logout</button>
+        </form>
     <% } %>
     </div>
 </header>
 
-<section>
-    <div class="user-wrapper">
-        <div class="profile-image">
-            <img src="<%= user.profile_image %>" alt="">
+<main class="content-wrapper">
+    <section>
+        <div class="user-info">
+            <div class="profile-image">
+                <img src="<%= user.profile_image %>" alt="User profile picture">
+            </div>
+            <div class="profile-desc">
+                <h2>About me</h2>
+                <p><%= user.about_me %></p>
+            </div>
         </div>
-        <div class="user-desc">
-            <h2>About me</h2>
-            <p><%= user.about_me %></p>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section>
-    <div class="user-games">
-        <h2>Games</h2>
-        <% if (currentUser.id === user.id) { %>
-            <a href="/users/<%= user.id %>/edit/games">edit games</a>
-        <% } %>
-        <table>
-            <tr>
-                <th>Title</th>
-                <th>Remarks</th>
-            </tr>
-            <% for (let game of games) {%>
-                <tr>
-                    <td><%= game.title %></td>
-                    <td><%= game.remark %></td>
-                </tr>
+    <section>
+        <div class="user-games">
+            <h2>Games</h2>
+            <% if (currentUser.id === user.id) { %>
+                <a href="/users/<%= user.id %>/edit/games">edit games</a>
             <% } %>
-        </table>
-    </div>
-</section>
+            <table>
+                <tr>
+                    <th>Title</th>
+                    <th>Remarks</th>
+                </tr>
+                <% for (let game of games) {%>
+                    <tr>
+                        <td><a class="player" href="/games/<%= game.game_id %>"><%= game.title %></a></td>
+                        <td><span class="remark"><%= game.remark %></span></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+    </section>
+</main>
+

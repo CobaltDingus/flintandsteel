@@ -25,6 +25,7 @@ router.get('/games/:id', (req, res) => {
         `
         db.query(sqlGameUsers, [gameId], (err, result) => {
             if (err) console.log(err);
+
             const gameUsers = result.rows
 
             res.render('show', { game: game, gameUsers: gameUsers })

@@ -26,6 +26,18 @@ CREATE TABLE usergamelist (
     FOREIGN KEY (game_id) REFERENCES games (id) ON DELETE CASCADE
 );
 
+CREATE TABLE messages (
+    id SERIAL PRIMARY KEY,
+    sender_id INTEGER,
+    receiver_id INTEGER,
+    content TEXT NOT NULL,
+    time_posted TIMESTAMP DEFAULT now(),
+    FOREIGN KEY (sender_id) REFERENCES users (id),
+    FOREIGN KEY (receiver_id) REFERENCES users (id)
+);
+
+select date_trunc('second', time_posted) from messages;
+
 INSERT INTO users (username, email, password_hashed) VALUES (CobaltDingus, cobalt@gmail.com, $2b$10$hPcP7aXuHpTN7k9JJQLaKexvPhlO2LhgUGObDZSal/eKd3kVR1KMa)
 
 SELECT usergamelist.id,username,title FROM usergamelist JOIN games ON (usergamelist.game_id = games.id) JOIN users ON (usergamelist.user_id = users.id) ORDER BY user_id;
