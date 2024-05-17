@@ -4,6 +4,7 @@ An attempt to make a website where people can list the games they play and conne
 
 # Screenshots
 <img src="https://i.imgur.com/orgburS.png">
+<img src="https://i.imgur.com/muIwPEu.png">
 
 # Technologies Used
 - JavaScript
