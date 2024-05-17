@@ -1,6 +1,6 @@
 <header>
     <div class="user-header">
-        <h1><%= user.username %></h1>
+        <h1 class="header"><%= user.username %></h1>
     <% if (currentUser.id === user.id) { %>
         <a href="/users/<%= user.id %>/edit/profile">edit profile</a>
         <form action="/logout?_method=delete" method="post">
