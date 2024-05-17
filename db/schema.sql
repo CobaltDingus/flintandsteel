@@ -36,8 +36,8 @@ CREATE TABLE messages (
     FOREIGN KEY (receiver_id) REFERENCES users (id)
 );
 
-select date_trunc('second', time_posted) from messages;
+-- select date_trunc('second', time_posted) from messages;
 
-INSERT INTO users (username, email, password_hashed) VALUES (CobaltDingus, cobalt@gmail.com, $2b$10$hPcP7aXuHpTN7k9JJQLaKexvPhlO2LhgUGObDZSal/eKd3kVR1KMa)
+-- INSERT INTO users (username, email, password_hashed) VALUES (CobaltDingus, cobalt@gmail.com, $2b$10$hPcP7aXuHpTN7k9JJQLaKexvPhlO2LhgUGObDZSal/eKd3kVR1KMa)
 
-SELECT usergamelist.id,username,title FROM usergamelist JOIN games ON (usergamelist.game_id = games.id) JOIN users ON (usergamelist.user_id = users.id) ORDER BY user_id;
+-- SELECT usergamelist.id,username,title FROM usergamelist JOIN games ON (usergamelist.game_id = games.id) JOIN users ON (usergamelist.user_id = users.id) ORDER BY user_id;

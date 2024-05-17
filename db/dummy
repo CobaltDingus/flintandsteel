@@ -1,0 +1,26 @@
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('CobaltDingus', 'cobalt@gmail.com', '$2b$10$hPcP7aXuHpTN7k9JJQLaKexvPhlO2LhgUGObDZSal/eKd3kVR1KMa', 'https://i.pinimg.com/564x/b7/2d/b3/b72db3e00754da3fda03b166dbeead91.jpg', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('ShadowBladeX', 'dummy1@gmail.com', '$2b$10$erErUfvs8SmJxXNxerVaROXqRKhS.3j94TQY.IIq3n8aenHMY9FNq', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('LunaWraith', 'dummy2@gmail.com', '$2b$10$YSnF.tBFNgC2vtHsQo.loO.MqMNEHembuxDHQjbPgHv8yvCCrCfgC', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('FrostByte', 'dummy3@gmail.com', '$2b$10$fpbhvX3HpyRk3RVQnGy4EOKG7v4gb8NJYPxxvmJBs7b/81mlb3jYe', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('NovaStrike', 'dummy4@gmail.com', '$2b$10$aM6oAhTtkTMdj0ryODL48O3q2mf/UZ6/zLX6uth1/fk4Axv.5n2JW', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('SpecterHawk', 'dummy5@gmail.com', '$2b$10$7wF8S0uXsKu0kSQrdXOA4uZ8KcA22ocDQ946.NicoJqzcDzt0oIIG', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('IronPhoenix', 'dummy6@gmail.com', '$2b$10$/cUdfqFfmjtIM920pJnnwO1HiGlr9oFZ1YR3JkAgQHA5PV0/j4AW2', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('ViperFang', 'dummy7@gmail.com', '$2b$10$GYz0hmVUZ7Xv26PVOIqOfe4.d3Dn0BbUdgr6XB0CWcPxXq/sEBDb.', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('StormChaser', 'dummy8@gmail.com', '$2b$10$ASZTsWFSC./NZ0KYILHWXu9G3xr8cV0qkt8Rargdh8lyv9yCXnCU2', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+INSERT INTO users (username, email, password_hashed, profile_image, about_me) VALUES ('BlazeFury', 'dummy9@gmail.com', '$2b$10$rFmZ..Uua/JxpEHGWfcCWuVubK4vVl2.nD3PnMb4svbX3xOiRTzZG', 'https://fakeimg.pl/400x400?text=profile', 'I like games');
+
+INSERT INTO games (title, image_url) VALUES ('Mario Kart', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvv_wskyZTlrWFCyhJvG-yycHSfGxsxmXmbQWXq2mltw&s');
+INSERT INTO games (title, image_url) VALUES ('Garfield Kart', 'https://www.metacritic.com/a/img/catalog/provider/6/12/6-1-733450-52.jpg');
+INSERT INTO games (title, image_url) VALUES ('DOOM Eternal', 'https://image.api.playstation.com/vulcan/ap/rnd/202010/0114/ERNPc4gFqeRDG1tYQIfOKQtM.png');
+INSERT INTO games (title, image_url) VALUES ('Animal Crossing: New Horizons', 'https://assets1.ignimgs.com/2020/05/05/animal-crossing-new-horizons---button-fin-1588641487551.jpg');
+INSERT INTO games (title, image_url) VALUES ('Final Fantasy VII', 'https://assets1.ignimgs.com/2020/04/06/final-fantasy-vii-remake---button-fin-1586205679705.jpg');
+INSERT INTO games (title, image_url) VALUES ('League of Legends', 'https://static1.squarespace.com/static/5d65a0c9f6688b000129ce9d/5d65a27692c11f000146b66f/635fecb717ba135c25d06e06/1667830515403/d4f.jpg?format=1500w');
+INSERT INTO games (title, image_url) VALUES ('Dota 2', 'https://i.redd.it/e8k5dhz958va1.jpg');
+INSERT INTO games (title, image_url) VALUES ('Minecraft', 'https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA00265_00/8/i_1c2d1812f27ec71285072e191d1822134e4f9730141c88537d87837014a17295/i/icon0.png');
+INSERT INTO games (title, image_url) VALUES ('Terraria', 'https://assets1.ignimgs.com/2019/01/17/terraria---button-1547745886957.jpg');
+INSERT INTO games (title, image_url) VALUES ('Subnautica', 'https://images.nintendolife.com/b0072b91478df/subnautica-cover.cover_large.jpg');
+INSERT INTO games (title, image_url) VALUES ('The Elder Scrolls V: Skyrim', 'https://assets-prd.ignimgs.com/2021/08/19/elder-scrolls-skyrim-button-2017-1629409446732.jpg');
+INSERT INTO games (title, image_url) VALUES ('Valorant', 'https://sm.ign.com/ign_ap/cover/v/valorant/valorant_he99.jpg');
+INSERT INTO games (title, image_url) VALUES ('Genshin Impact', 'https://assets-prd.ignimgs.com/2020/09/29/genshin-impact-button-fin-1601346152039.jpg');
+INSERT INTO games (title, image_url) VALUES ('Honkai: Star Rail', 'https://image.api.playstation.com/vulcan/ap/rnd/202308/1103/8c3ce3611a4bb187418bb5e24924a055ba33d3046a7aaacb.png');
+INSERT INTO games (title, image_url) VALUES ('Baldur''s Gate 3', 'https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/ba706e54d68d10a0eb6ab7c36cdad9178c58b7fb7bb03d28.png');

@@ -273,6 +273,12 @@ table {
     box-shadow: var(--boxshadow);
 }
 
+.edit-link {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: blue;
+}
+
 @media (min-width: 800px) {
     body {
         text-align: initial;

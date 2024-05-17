@@ -13,6 +13,7 @@ const sql = `
 `
 
 const dummyEmails = [
+    "cobalt@gmail.com",
     "dummy1@gmail.com",
     "dummy2@gmail.com",
     "dummy3@gmail.com",
@@ -25,6 +26,7 @@ const dummyEmails = [
   ];
 
 const gamingUsernames = [
+    "CobaltDingus",
     "ShadowBladeX",
     "LunaWraith",
     "FrostByte",
@@ -37,6 +39,7 @@ const gamingUsernames = [
   ];
 
 const randomPasswords = [
+    "gaming",
     "Crimson",
     "Whisper",
     "Aurora",
@@ -75,5 +78,4 @@ function multipleUsers() {
     }
 }
 
-singleUser()
-// multipleUsers()
+multipleUsers()
