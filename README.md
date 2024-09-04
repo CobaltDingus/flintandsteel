@@ -1,6 +1,6 @@
 # GameShare
 An attempt to make a website where people can list the games they play and connect with other people that play the same games.
- [link to your game](https://gameshare-znvj.onrender.com/)
+ [link to the site](https://gameshare-znvj.onrender.com/)
 
 # Screenshots
 <img src="https://i.imgur.com/orgburS.png">
